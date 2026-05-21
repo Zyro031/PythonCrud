@@ -28,6 +28,7 @@ name: Build and deploy a container to an Azure Web App
 
 env:
   AZURE_WEBAPP_NAME: cloudio  # set this to the name of your Azure Web App
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Atualiza as actions para usar o Node.js 24
 
 on:
   push:
@@ -36,6 +37,7 @@ on:
 
 permissions:
   contents: read
+  packages: write # Adicionado para permitir o push no GitHub Container Registry (GHCR)
 
 jobs:
   build:
